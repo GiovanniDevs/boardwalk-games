@@ -25,6 +25,10 @@ h3 {
   text-transform: uppercase;
 }
 
+h2 {
+  margin-bottom: 2rem;
+}
+
 .sub-heading-color {
   color: var(--highlight-color);
 }
