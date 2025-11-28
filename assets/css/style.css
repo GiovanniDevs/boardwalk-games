@@ -42,6 +42,10 @@ h2 {
   margin-bottom: 2rem;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /* Buttons */
 
 .custom-button-filled {
@@ -152,12 +156,20 @@ h2 {
 
 /* Media queries */
 
+/* Medium devices (tablets, 320 and up) */
+@media screen and (min-width: 320px) {
+  #events .table {
+    font-size: 69%;
+  }
+}
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
   /* Make all service cards the same height for consistency */
   #services .card-body {
     min-height: 191px;
   }
+  #events .table {
+    font-size: 100%;
 }
 
 /* Large devices (small laptops, 992px and up) */
