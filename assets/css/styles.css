@@ -25,6 +25,10 @@ h3 {
   color: var(--highlight-color);
 }
 
+/*  Nav bar Secxtion */
+#navbar {
+  background-color: var(--primary-color);
+}
 /* grid visualisation CSS for testing */
 /* .container,
 .row {
