@@ -15,6 +15,7 @@
 
 body {
   font-family: var(--primary-font);
+  padding-top: 57.15px; /* pushes the top of the header down under fixed navbar */
 }
 
 h1,
@@ -38,12 +39,7 @@ h2 {
 }
 
 .section {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.hidden {
-  visibility: hidden;
+  padding-top: 4rem; /* prevent navbar overlap */
 }
 
 /* Buttons */
@@ -99,6 +95,26 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+/* Events */
+
+#events .table {
+  /* events table font size small enough that 
+      the table doesn't overflow on xs screens. 
+      Size set back to 1rem in a media query 
+      for sm screens and up */
+  font-size: 0.7rem;
+}
+
+.student-discount {
+  background-color: var(--highlight-color);
+  font-weight: bold;
+  color: white;
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
 /* Game library cards */
 
 #new-games .card,
@@ -156,20 +172,23 @@ h2 {
 
 /* Media queries */
 
-/* Medium devices (tablets, 320 and up) */
-@media screen and (min-width: 320px) {
+/* Small screens and up */
+@media screen and (min-width: 576px) {
+  /* increase font size in events table when screen size is large enough */
   #events .table {
-    font-size: 69%;
+    font-size: 1rem;
+  }
+  .student-discount {
+    font-size: 1rem;
   }
 }
+
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
   /* Make all service cards the same height for consistency */
   #services .card-body {
     min-height: 191px;
   }
-  #events .table {
-    font-size: 100%;
 }
 
 /* Large devices (small laptops, 992px and up) */

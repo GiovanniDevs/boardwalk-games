@@ -46,7 +46,7 @@
     <!-- Navigation -->
     <nav
       id="navbar"
-      class="navbar navbar-expand-lg sticky-top"
+      class="navbar navbar-expand-lg fixed-top"
       data-bs-theme="dark"
     >
       <div class="container">
@@ -76,19 +76,19 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#events" class="nav-link">Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="game-library.html">Games</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#events">Events</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="booking.html" class="btn btn-primary ms-lg-3"
+              <a href="booking.html" class="btn custom-button-filled ms-lg-3"
                 >Book now</a
               >
             </li>
@@ -282,16 +282,12 @@
           </div>
         </div>
       </section>
-    </main>
-
-    <!-- Events Section -->
-
-    <section id="events" class="mt-auto">
-      <div class="container section">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <h1 class="display-5">Join our events</h1>
+      <section id="events" class="container section">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="display-6 text-center">Join our events</h2>
           </div>
+
           <div class="col-12 col-xl-6">
             <p>
               Whether you're delving into dungeons, reliving classic games, or
@@ -305,8 +301,8 @@
               Join us anytime to discover new games and meet fellow enthusiasts.
             </p>
           </div>
-          <div class="col-12 col-md-12 col-xl-6">
-            <table id="events-table" class="table">
+          <div class="col-12 col-xl-6">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th scope="col">Event</th>
@@ -324,7 +320,7 @@
                 </tr>
                 <tr>
                   <th scope="row">Retro Game Night</th>
-                  <td>Tuesdays</td>
+                  <td>Thursdays</td>
                   <td>8pm - 11pm</td>
                   <td>€5 per person*</td>
                 </tr>
@@ -336,16 +332,18 @@
                 </tr>
               </tbody>
             </table>
-            <p>text: *Get 20% off with valid student ID</p>
+            <p class="student-discount text-center">
+              *Get 20% off with valid student ID
+            </p>
+          </div>
+          <div class="col-12 text-center">
+            <a href="booking.html" class="btn custom-button-outline my-4"
+              >Book now</a
+            >
           </div>
         </div>
-      </div>
-      <div class="d-flex justify-content-center">
-        <div>
-          <a href="booking.html" class="btn custom-button-outline">Book now</a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer / contact section -->
     <!-- mt-auto added to push footer to the bottom of the page -->
@@ -445,5 +443,27 @@
       src="https://kit.fontawesome.com/aa9af45995.js"
       crossorigin="anonymous"
     ></script>
+    <!-- JavaScript code to ensure the Bootstrap mobile navbar collapses when navigating to in-page links -->
+    <script>
+      document
+        .querySelectorAll(".navbar-collapse .nav-link")
+        .forEach((link) => {
+          link.addEventListener("click", function (e) {
+            let section = document.querySelector(e.target.getAttribute("href"));
+            if (section) {
+              e.preventDefault(); // Prevent default anchor click behavior
+              let navbarHeight =
+                document.querySelector(".navbar-toggler").offsetHeight;
+              window.scroll({
+                top: section.offsetTop - navbarHeight, // Adjust for navbar height
+                behavior: "smooth",
+              });
+              document
+                .querySelector(".navbar-collapse")
+                .classList.remove("show"); // Collapse navbar
+            }
+          });
+        });
+    </script>
   </body>
 </html>
